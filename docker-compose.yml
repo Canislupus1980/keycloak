@@ -42,5 +42,5 @@ services:
       JAVA_OPTS: -server -Xms1024m -Xmx1024m
     image: jboss/keycloak:${KEYCLOAK_VERSION}
     ports:
-      - ${PORT_KEYCLOAK}:8080
+      - 8080:8080
     restart: unless-stopped
