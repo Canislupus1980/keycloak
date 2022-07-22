@@ -15,6 +15,7 @@ services:
 
   postgres:
     image: postgres:${POSTGRES_VERSION}
+    container_name: postgresql
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRESQL_DB}
