@@ -8,4 +8,4 @@ proxy-nginx keycloak docker-compose TrustSSL
     /opt/jboss/keycloak/bin/add-user-keycloak.sh \
     -u admin \
     -p admin \
-&& docker restart local_keycloak
+    && docker restart local_keycloak
