@@ -2,6 +2,8 @@
 proxy-nginx keycloak docker-compose TrustSSL
 
 ####Instructions for creating a user "keycloak"#####
+    
+    
     docker exec local_keycloak \
     /opt/jboss/keycloak/bin/add-user-keycloak.sh \
     -u admin \
