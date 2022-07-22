@@ -24,7 +24,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /home/${NAME_PROJECT}/data/db:/var/lib/postgresql
+      - /home/${NAME_PROJECT}/data:/var/lib/postgresql/data/
    
   keycloak:
     depends_on:
