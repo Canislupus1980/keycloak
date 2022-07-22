@@ -1,5 +1,5 @@
 # keycloak
-proxy-nginx keycloak docker-compose
+proxy-nginx keycloak docker-compose TrustSSL
 
 ####Instructions for creating a user "keycloak"#####
     docker exec local_keycloak \
