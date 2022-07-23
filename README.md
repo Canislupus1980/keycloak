@@ -1,5 +1,5 @@
 # keycloak
-proxy-nginx keycloak docker-compose TrustSSL
+proxy-nginx keycloak docker-compose DigiCert
 
 ####Instructions for creating a user "keycloak"#####
     
