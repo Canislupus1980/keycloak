@@ -9,3 +9,7 @@ proxy-nginx keycloak docker-compose DigiCert
     -u admin \
     -p admin \
     && docker restart local_keycloak
+
+
+####start scripts#####
+sudo watch --interval=1 /home/cloud-user/.git/keycloak-auth-otp-sms/sms.sh
