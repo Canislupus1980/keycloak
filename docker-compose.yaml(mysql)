@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  nginx_proxy:
+    image: nginx:${NGINX_VERSION}
+    container_name: nginx_proxy
+    restart: always
+    volumes:
+      - /home/${NAME_PROJECT}/nginx:/etc/nginx
+      - /home/${NAME_PROJECT}/nginx/www:/data/www
+      - /home/${NAME_PROJECT}/certs:/etc/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
+
+  database:
+    image: ${DATABASE_VERSION}
+    container_name: database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASS}
+      TZ: ${TIME_ZONE}
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/${NAME_PROJECT}/data:/var/lib/mysql
+
+  keycloak:
+    depends_on:
+      - database
+    container_name: local_keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: ueeHWugC
+      KC_PROXY: edge
+      DB_VENDOR: mariadb
+      DB_ADDR: database
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: k@ycl0ck
+      DB_PORT: 3306
+      PROXY_ADDRESS_FORWARDING: true
+      JDBC_PARAMS: enabledTLSProtocols=TLSv1.3
+      JAVA_OPTS: -server -Xms1024m -Xmx1024m
+      TZ: ${TIME_ZONE}
+    image: jboss/keycloak:${KEYCLOAK_VERSION}
+    ports:
+      - ${PORT_KEYCLOAK}:8080
+    restart: always
