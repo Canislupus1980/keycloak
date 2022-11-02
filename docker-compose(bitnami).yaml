@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  nginx_proxy:
+    image: nginx:${NGINX_VERSION}
+    container_name: nginx_proxy
+    restart: unless-stopped
+    volumes:
+      - /home/${NAME_PROJECT}/nginx:/etc/nginx
+      - /home/${NAME_PROJECT}/nginx/www:/data/www
+      - /home/${NAME_PROJECT}/certs:/etc/letsencrypt
+    ports:
+      - 80:80
+      - 8443:443
+
+  postgres:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: postgresql
+    restart: unless-stopped
+    environment:
+      ROOT_PASSWORD: ${ROOT_PASS}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      TZ: ${TIME_ZONE}
+    ports:
+      - 5432:5432
+    volumes:
+      - /home/${NAME_PROJECT}/data/db:/var/lib/postgresql/data/
+
+  keycloak:
+    depends_on:
+      - postgres
+    container_name: local_keycloak
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: postgres
+      DB_DATABASE: ${POSTGRES_DB}
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASS}
+      DB_PORT: 5432         
+      PROXY_ADDRESS_FORWARDING: true
+    image: bitnami/keycloak:${KEYCLOAK_VERSION}
+    volumes:
+    - /path/to/standalone-ha.xml:/bitnami/keycloak/configuration/standalone-ha.xml:ro
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
