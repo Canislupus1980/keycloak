@@ -45,8 +45,6 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: ${PASS}
       PROXY_ADDRESS_FORWARDING: true
       TZ: ${TIME_ZONE}
-    image: bitnami/keycloak:${KEYCLOAK_VERSION}
-    volumes:
-      - /home/${NAME_PROJECT}/path/to/standalone-ha.xml:/bitnami/keycloak/configuration/standalone-ha.xml:ro
+    image: bitnami/keycloak:${KEYCLOAK_VERSION}    
     ports:
       - 8080:8080
