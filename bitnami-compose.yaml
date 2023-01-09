@@ -6,8 +6,8 @@ services:
     container_name: nginx
     restart: on-failure
     volumes:
-      - /home/${NAME_PROJECT}/nginx:/etc/nginx/conf.d
-      - /home/${NAME_PROJECT}/certs:/etc/nginx/certs
+      - ./nginx:/etc/nginx/conf.d
+      - ./certs:/etc/nginx/certs
     ports:
       - "80:80"
       - "443:443"
@@ -40,11 +40,9 @@ services:
       DB_DATABASE: ${POSTGRES_DB}
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASS}
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: ueeHWugC!
       PROXY_ADDRESS_FORWARDING: "true"
       REDIRECT_SOCKET: "proxy-https"
-      KEYCLOAK_FRONTEND_URL: https://sso.becloud.by/
+      KEYCLOAK_FRONTEND_URL: "https://sso.domen.com"
       TZ: ${TIME_ZONE}
     image: bitnami/keycloak:${KEYCLOAK_VERSION}
     ports:
