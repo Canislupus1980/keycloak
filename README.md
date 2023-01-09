@@ -1,6 +1,8 @@
 # keycloak
 proxy-nginx keycloak docker-compose DigiCert
 
+docker network create --driver bridge --subnet=172.16.50.0/24 sso-network
+
 ####Instructions for creating a user "keycloak"#####
     
     
