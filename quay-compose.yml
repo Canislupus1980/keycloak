@@ -1,0 +1,61 @@
+version: '3.9'
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: on-failure
+    volumes:
+      - /home/${NAME_PROJECT}/nginx:/etc/nginx/conf.d
+      - /home/${NAME_PROJECT}/certs:/etc/nginx/certs
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - sso-network
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      TZ: ${TIME_ZONE}
+    ports:
+      - 5432:5432
+    networks:
+      - sso-network
+    volumes:
+      - /home/${NAME_PROJECT}/data:/var/lib/postgresql/data
+
+  keycloak:
+    depends_on:
+      - postgres
+    container_name: keycloak
+    environment:
+      HOSTNAME: sso.domen.com
+      HOSTNAME_PORT: 8080
+      HOSTNAME_STRICT_BACKCHANNEL: true
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_SCHEMA: public
+      DB_DATABASE: ${POSTGRES_DB}
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASS}
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: ueeHWugC!
+      PROXY_ADDRESS_FORWARDING: true      
+      TZ: ${TIME_ZONE}
+    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
+    ports:
+      - 8080:8080
+    networks:
+      - sso-network
+
+
+# Networks to be created to facilitate communication between containers
+networks:
+  sso-network:
+    external: true
