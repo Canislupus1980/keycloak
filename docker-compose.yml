@@ -40,7 +40,7 @@ services:
       DB_USER: ${POSTGRESQL_USER}
       DB_PASSWORD: ${POSTGRESQL_PASS}
       DB_PORT: 5432
-      PROXY_ADDRESS_FORWARDING: true
+      PROXY_ADDRESS_FORWARDING: 'true'
       JDBC_PARAMS: enabledTLSProtocols=TLSv1.3
       JAVA_OPTS: -server -Xms1024m -Xmx1024m
       TZ: ${TIME_ZONE}
