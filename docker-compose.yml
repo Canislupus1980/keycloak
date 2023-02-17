@@ -9,6 +9,8 @@ services:
       - /home/${NAME_PROJECT}/nginx:/etc/nginx
       - /home/${NAME_PROJECT}/nginx/www:/data/www
       - /home/${NAME_PROJECT}/certs:/etc/letsencrypt
+    environment:
+      TZ: ${TIME_ZONE}
     ports:
       - 80:80
       - 443:443
@@ -26,7 +28,7 @@ services:
       - 5432:5432
     volumes:
       - /home/${NAME_PROJECT}/data:/var/lib/postgresql/data/
-   
+
   keycloak:
     depends_on:
       - postgres
@@ -38,11 +40,10 @@ services:
       DB_USER: ${POSTGRESQL_USER}
       DB_PASSWORD: ${POSTGRESQL_PASS}
       DB_PORT: 5432
-      #KEYCLOAK_USER: ${USER}
-      #KEYCLOAK_PASSWORD: ${PASSWORD}
       PROXY_ADDRESS_FORWARDING: true
       JDBC_PARAMS: enabledTLSProtocols=TLSv1.3
       JAVA_OPTS: -server -Xms1024m -Xmx1024m
+      TZ: ${TIME_ZONE}
     image: jboss/keycloak:${KEYCLOAK_VERSION}
     ports:
       - 8080:8080
