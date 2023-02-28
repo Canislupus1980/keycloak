@@ -33,7 +33,7 @@ services:
   keycloak:
     depends_on:
       - postgres
-    container_name: keycloak
+    container_name: local_keycloak
     environment:
       HOSTNAME: sso.domen.com
       HOSTNAME_PORT: 8080
