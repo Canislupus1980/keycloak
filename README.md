@@ -1,4 +1,4 @@
-![keycloak-image](https://www.google.com/imgres?imgurl=https%3A%2F%2Fcurity.io%2Fimages%2Fresources%2Ftutorials%2Fmigrations%2Ftutorials-keycloak.png&imgrefurl=https%3A%2F%2Fcurity.io%2Fresources%2Flearn%2Fmigrating-from-keycloak%2F&tbnid=VNLLKtG1wqCN7M&vet=12ahUKEwjPoqWylL79AhURxQIHHVpJA7sQMygOegUIARDXAQ..i&docid=AzYvFIIrdLfbvM&w=1202&h=514&q=keycloak&ved=2ahUKEwjPoqWylL79AhURxQIHHVpJA7sQMygOegUIARDXAQ)
+![keycloak-image](https://repository-images.githubusercontent.com/11125589/bd31cf00-70f4-11e9-9fb2-4f241568e586)
 # Keycloak
 ## Everyone yml-files uses issued certificates
 
