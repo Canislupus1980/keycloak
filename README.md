@@ -21,7 +21,7 @@ docker network create --driver bridge --subnet=172.16.50.0/24 sso-network
     && docker restart local_keycloak
 ```
 
-### start script
-```bash
+### Running the sms-gate script
+```sh
 sudo watch --interval=1 /home/cloud-user/.git/keycloak-auth-otp-sms/sms.sh
 ```
