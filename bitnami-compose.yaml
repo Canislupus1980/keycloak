@@ -6,7 +6,7 @@ services:
     container_name: nginx
     restart: on-failure
     volumes:
-      - ./nginx:/etc/nginx
+      - ./nginx:/etc/nginx/conf.d
       - ./certs:/etc/nginx/certs
     ports:
       - "80:80"
