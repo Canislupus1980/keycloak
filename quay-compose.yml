@@ -46,8 +46,8 @@ services:
       DB_DATABASE: ${POSTGRES_DB}
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASS}
-      KEYCLOAK_USER: 'admin'
-      KEYCLOAK_PASSWORD: 'admin'
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
       PROXY_ADDRESS_FORWARDING: 'true'      
       TZ: ${TIME_ZONE}
     image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
