@@ -35,18 +35,18 @@ services:
       - postgres
     container_name: local_keycloak
     environment:
-      HOSTNAME: sso.domen.com
-      HOSTNAME_PORT: 8080
-      HOSTNAME_STRICT_BACKCHANNEL: true
+      HOSTNAME: 'sso.domen.com'
+      HOSTNAME_PORT: '8080'
+      HOSTNAME_STRICT_BACKCHANNEL: 'true'
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres
       DB_SCHEMA: public
       DB_DATABASE: ${POSTGRES_DB}
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASS}
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: ueeHWugC!
-      PROXY_ADDRESS_FORWARDING: true      
+      KEYCLOAK_USER: 'admin'
+      KEYCLOAK_PASSWORD: 'admin'
+      PROXY_ADDRESS_FORWARDING: 'true'      
       TZ: ${TIME_ZONE}
     image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
     ports:
