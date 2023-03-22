@@ -25,3 +25,5 @@ docker network create --driver bridge --subnet=172.16.50.0/24 sso-network
 ```sh
 sudo watch --interval=1 /home/cloud-user/.git/keycloak-auth-otp-sms/sms.sh
 ```
+Refrence & Links
+https://github.com/cooperlyt/keycloak-phone-provider
