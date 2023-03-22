@@ -1,8 +1,8 @@
 # main provider
-module add --name=keycloak-phone-provider --resources=keycloak-phone-provider.jar --dependencies=org.keycloak.keycloak-core,org.keycloak.keycloak-common,org.hibernate,org.keycloak.keycloak-server-spi,org.keycloak.keycloak->
+module add --name=keycloak-phone-provider --resources=keycloak-phone-provider.jar --dependencies=org.keycloak.keycloak-core,org.keycloak.keycloak-common,org.hibernate,org.keycloak.keycloak-server-spi,org.keycloak.keycloak-server-spi-private,org.keycloak.keycloak-services,org.keycloak.keycloak-model-jpa,org.jboss.logging,javax.api,javax.ws.rs.api,javax.transaction.api,javax.persistence.api,org.jboss.resteasy.resteasy-jaxrs,org.apache.httpcomponents,org.apache.commons.lang,javax.xml.bind.api,com.squareup.okhttp3
 
 # becloud provider
-module add --name=keycloak-sms-provider-becloud --resources=keycloak-sms-provider-becloud.jar --dependencies=org.keycloak.keycloak-core,org.keycloak.keycloak-server-spi,org.jboss.logging,keycloak-phone-provider,org.apache.>
+module add --name=keycloak-sms-provider-becloud --resources=keycloak-sms-provider-becloud.jar --dependencies=org.keycloak.keycloak-core,org.keycloak.keycloak-server-spi,org.jboss.logging,keycloak-phone-provider,org.apache.httpcomponents
 
 embed-server --server-config=standalone-ha.xml --std-out=echo
 batch

@@ -1,0 +1,3 @@
+cc/coopersoft/keycloak/phone/providers/sender/becloudSmsSenderServiceProvider.class
+cc/coopersoft/keycloak/phone/providers/sender/becloudMessageSenderServiceProviderFactory.class
+cc/coopersoft/keycloak/phone/providers/sender/CheckSumBuilder.class
