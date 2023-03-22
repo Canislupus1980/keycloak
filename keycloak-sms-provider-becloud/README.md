@@ -1,6 +1,6 @@
 # beCloud  SMS Sender Provider
 
-**Not verify in Quarkus 21.0.1**
+**verify in Quarkus 21.0.1**
 
 ```sh
 cp target/providers/keycloak-phone-provider.jar ${KEYCLOAK_HOME}/providers/
