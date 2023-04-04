@@ -51,10 +51,9 @@ public class becloudSmsSenderServiceProvider implements MessageSenderService {
     String kindName = OptionalUtils.ofBlank(kind).orElse(type.name().toLowerCase());
     String templateId = Optional.ofNullable(config.get(realm.getName().toLowerCase() + "-" + kindName + "-template"))
         .orElse(config.get(kindName + "-template"));
-    nvps.add(new BasicNameValuePair("phone_numbers", phoneNumber));
-    nvps.add(new BasicNameValuePair("content", code));
-    nvps.add(new BasicNameValuePair("client_name", phoneNumber));
-    nvps.add(new BasicNameValuePair("contact_person", phoneNumber));
+    nvps.add(new BasicNameValuePair(" *** ");
+    nvps.add(new BasicNameValuePair(" *** ", phoneNumber));
+    nvps.add(new BasicNameValuePair(" *** ", phoneNumber));
 
 
     // execute request
@@ -66,8 +65,8 @@ public class becloudSmsSenderServiceProvider implements MessageSenderService {
       httpPost.setEntity(new UrlEncodedFormEntity(nvps, "utf-8"));      
       HttpResponse response = HttpClientBuilder.create().setDefaultHeaders(List.of(
               new BasicHeader(HttpHeaders.CONTENT_TYPE, "application/json"),
-              new BasicHeader(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded"),
-              new BasicHeader(HttpHeaders.AUTHORIZATION, "key Ainga8yo@raezahwuu-hieK")))
+              new BasicHeader(HttpHeaders.CONTENT_TYPE, " *** "),
+              new BasicHeader(HttpHeaders.AUTHORIZATION, " *** ")))
               .build().execute(httpPost);
       System.out.println(EntityUtils.toString(response.getEntity(), "utf-8"));
     } catch (IOException e) {
