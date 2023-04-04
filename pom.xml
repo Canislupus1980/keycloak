@@ -7,7 +7,7 @@
     <groupId>cc.coopersoft</groupId>
     <artifactId>keycloak-phone-provider-parent</artifactId>
     <packaging>pom</packaging>
-    <version>2.2.2</version>
+    <version>2.3.1</version>
 
     <name>keycloak-phone-provider</name>
     <description>keycloak phone support.</description>
@@ -31,22 +31,22 @@
     <developers>
         <developer>
             <id>cooperlyt</id>
-            <name>cooper lee</name>
-            <email>lyt3131@163.com</email>
-            <organization>https://cooperlyt.github.io</organization>
-            <timezone>+8</timezone>
+            <name>sergey buhtiyarov</name>
+            <email>admin@becloudby.com</email>
+            <organization>beCloud</organization>
+            <timezone>+3</timezone>
             <roles>
-                <role>Developer</role>
+                <role>DevOps</role>
             </roles>
         </developer>
     </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <java.version>17</java.version>
-        <version.keycloak>21.0.1</version.keycloak>
+        <version.keycloak>21.0.2</version.keycloak>
     </properties>
 
     <modules>
@@ -60,7 +60,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -87,6 +87,7 @@
             <version>${version.keycloak}</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
 

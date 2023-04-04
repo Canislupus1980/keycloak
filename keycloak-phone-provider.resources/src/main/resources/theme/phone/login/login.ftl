@@ -57,6 +57,8 @@
                             <input type="hidden" id="phoneActivated" name="phoneActivated" v-model="phoneActivated">
                        </#if>
 
+                        <div class="logo"></div>
+
 
                         <div  <#if !usernameHidden?? && supportPhone??> v-if="!phoneActivated" </#if> >
                             <#if !usernameHidden??>
@@ -82,6 +84,9 @@
                                     </#if>
 
                                 </div>
+
+                                
+
                             </#if>
 
                             <div class="${properties.kcFormGroupClass!}">
@@ -191,8 +196,8 @@
                             if (seconds <= 0) {
                                 app.sendButtonText = app.initSendButtonText;
                             } else {
-                                const minutes = Math.floor(seconds / 180) + '';
-                                const seconds_ = seconds % 180 + '';
+                                const minutes = Math.floor(seconds / 60) + '';
+                                const seconds_ = seconds % 60 + '';
                                 app.sendButtonText = String(minutes.padStart(2, '0') + ":" + seconds_.padStart(2, '0'));
                                 setTimeout(function () {
                                     app.disableSend(seconds - 1);

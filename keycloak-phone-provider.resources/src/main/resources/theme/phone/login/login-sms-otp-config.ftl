@@ -60,8 +60,8 @@
 
       <script type="text/javascript">
           function req(phoneNumber) {
-              const params = {params: {phoneNumber}}
-              axios.get(window.location.origin + '/realms/${realm.name}/sms/verification-code', params)
+              const params = {params: {phoneNumber},kind: "configure"}
+              axios.get(window.location.origin + '/realms/${realm.name}/sms/otp-code', params)
                   .then(res => app.disableSend(res.data.expires_in))
                   .catch(e => app.errorMessage = e.response.data.error);
           }
@@ -77,8 +77,8 @@
                       if (seconds <= 0) {
                           app.sendButtonText = app.initSendButtonText;
                       } else {
-                          const minutes = Math.floor(seconds / 180) + '';
-                          const seconds_ = seconds % 180 + '';
+                          const minutes = Math.floor(seconds / 60) + '';
+                          const seconds_ = seconds % 60 + '';
                           app.sendButtonText = String(minutes.padStart(2, '0') + ":" + seconds_.padStart(2, '0'));
                           setTimeout(function () {
                               app.disableSend(seconds - 1);

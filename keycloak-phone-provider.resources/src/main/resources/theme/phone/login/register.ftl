@@ -7,6 +7,7 @@
             <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         </#if>
+        <div class="logo"></div>
         <div id="vue-app">
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
             <#if phoneNumberRequired??>
@@ -16,7 +17,8 @@
                 </div>
 
                 <span class="${properties.kcAlertTitleClass!}">{{ errorMessage }}</span>
-            </div>
+            </div> 
+            
             </#if>
 
             <#if !hideName??>
@@ -232,8 +234,8 @@
                             if (seconds <= 0) {
                                 app.sendButtonText = app.initSendButtonText;
                             } else {
-                                const minutes = Math.floor(seconds / 180) + '';
-                                const seconds_ = seconds % 180 + '';
+                                const minutes = Math.floor(seconds / 60) + '';
+                                const seconds_ = seconds % 60 + '';
                                 app.sendButtonText = String(minutes.padStart(2, '0') + ":" + seconds_.padStart(2, '0'));
                                 setTimeout(function () {
                                     app.disableSend(seconds - 1);
