@@ -4,7 +4,7 @@
 
 ![nginx-proxy](https://img.shields.io/badge/Nginx-proxy-blue)
 ![keycloak-16.1.1](https://img.shields.io/badge/Keycloak-16.1.1-brightgreen)
-![keycloak-20.0.5](https://img.shields.io/badge/Keycloak-20.0.5-orange)
+![keycloak-21.0.2](https://img.shields.io/badge/Keycloak-20.0.5-orange)
 ![Docker-compose](https://img.shields.io/badge/Docker-compose-lightgrey)
 ![Docker-compose](https://img.shields.io/badge/Digi-cert-yellowgreen)
 
