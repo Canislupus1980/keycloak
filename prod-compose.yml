@@ -1,0 +1,64 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      TZ: ${TIME_ZONE}
+    ports:
+      - 5432:5432
+    networks:
+      - sso-network
+    volumes:
+      - /home/${NAME_PROJECT}/data:/var/lib/postgresql/data
+
+  keycloak:
+    depends_on:
+      - postgres
+    container_name: keycloak
+    environment:
+      KEYCLOAK_HOSTNAME: sso.becloudby.com
+      KEYCLOAK_HTTP_PORT: 8080
+      HOSTNAME_STRICT_BACKCHANNEL: true
+      KEYCLOAK_EXTRA_ARGS: "-Dkeycloak.profile.feature.scripts=enabled"
+      KEYCLOAK_EXTRA_ARGS_PREPENDED: "--spi-login-protocol-openid-connect-legacy-logout-redirect-uri=true"
+      KEYCLOAK_DB_VENDOR: POSTGRES
+      KEYCLOAK_DB_ADDR: postgres
+      KEYCLOAK_DATABASE_HOST: postgres
+      KEYCLOAK_DATABASE_PORT: 5432
+      KEYCLOAK_DATABASE_SCHEMA: public
+      KEYCLOAK_DATABASE_NAME: ${POSTGRES_DB}
+      KEYCLOAK_DATABASE_USER: ${POSTGRES_USER}
+      KEYCLOAK_DATABASE_PASSWORD: ${POSTGRES_PASS}
+      KEYCLOAK_CREATE_ADMIN_USER: true
+      KEYCLOAK_ADMIN_USER: admin
+      KEYCLOAK_ADMIN_PASSWORD: ueeHWugC!@80
+      KEYCLOAK_PRODUCTION: true
+      PROXY_ADDRESS_FORWARDING: true
+      KEYCLOAK_ENABLE_HTTPS: true
+      KEYCLOAK_HTTPS_USE_PEM: true
+      KEYCLOAK_HTTPS_CERTIFICATE_FILE: /opt/bitnami/keycloak/certs/tls.crt
+      KEYCLOAK_HTTPS_CERTIFICATE_KEY_FILE: /opt/bitnami/keycloak/certs/tls.key
+      KEYCLOAK_ENABLE_STATISTICS: true
+      TZ: ${TIME_ZONE}
+    image: bitnami/keycloak:${KEYCLOAK_VERSION}
+    volumes:
+      - ./certs/becloudby.crt:/opt/bitnami/keycloak/certs/tls.crt:ro
+      - ./certs/becloudby.key:/opt/bitnami/keycloak/certs/tls.key:ro
+      - ./mynewtheme:/opt/bitnami/keycloak/themes/mynewtheme
+    ports:
+      - 8080:8080
+      - 443:8443
+    networks:
+      - sso-network
+          
+
+# Networks to be created to facilitate communication between containers
+networks:
+  sso-network:
+    external: true	
