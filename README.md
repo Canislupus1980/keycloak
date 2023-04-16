@@ -42,6 +42,8 @@ docker-compose -f ./docker-compose.yml restart
 
 ![image](https://user-images.githubusercontent.com/86954730/232290780-c92106ab-25fc-4531-9d41-6cf0457ce853.png)
 
+![image](https://user-images.githubusercontent.com/86954730/232291327-24332cc1-81f4-4719-ad8c-c0e30390c279.png)
+
 ![image](https://user-images.githubusercontent.com/86954730/232290877-13880487-c955-4b5c-bc60-f3e2ba7a394f.png)
 
 ![image](https://user-images.githubusercontent.com/86954730/232290972-ed5450a9-7591-44f7-893b-826f5a68c47d.png)
