@@ -12,7 +12,6 @@
                 [v-cloak] > * {
                     display: none;
                 }
-
                 [v-cloak]::before {
                     content: "loading...";
                 }
@@ -22,7 +21,7 @@
 
         <div id="vue-app">
             <div v-cloak>
-
+                
                     <#if realm.password>
                     <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
 
@@ -55,11 +54,9 @@
                             </div>
 
                             <input type="hidden" id="phoneActivated" name="phoneActivated" v-model="phoneActivated">
-                       </#if>
+                        </#if>
 
                         <div class="logo"></div>
-
-
                         <div  <#if !usernameHidden?? && supportPhone??> v-if="!phoneActivated" </#if> >
                             <#if !usernameHidden??>
                                 <div class="${properties.kcFormGroupClass!}">
@@ -84,9 +81,6 @@
                                     </#if>
 
                                 </div>
-
-                                
-
                             </#if>
 
                             <div class="${properties.kcFormGroupClass!}">
@@ -175,14 +169,12 @@
 
         <#if !usernameHidden?? && supportPhone??>
             <script type="text/javascript">
-
                 function req(phoneNumber) {
                     const params = {params: {phoneNumber}}
                     axios.get(window.location.origin + '/realms/${realm.name}/sms/authentication-code', params)
                         .then(res => app.disableSend(res.data.expires_in))
                         .catch(e => app.errorMessage = e.response.data.error);
                 }
-
                 var app = new Vue({
                     el: '#vue-app',
                     data: {
@@ -205,7 +197,6 @@
                             }
                         },
                         sendVerificationCode: function() {
-
                             const phoneNumber = document.getElementById('phoneNumber').value.trim();
                             if (!phoneNumber) {
                                 this.errorMessage = '${msg("requiredPhoneNumber")}';
@@ -216,7 +207,6 @@
                                 return;
                             }
                             req(phoneNumber);
-
                         }
                     }
                 });

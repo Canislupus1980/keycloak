@@ -8,6 +8,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <div id="vue-app">
+	<div class="logo"></div>
             <div class="alert-error ${properties.kcAlertClass!} pf-m-danger" v-show="errorMessage">
                 <div class="pf-c-alert__icon">
                     <span class="${properties.kcFeedbackErrorIcon!}"></span>
@@ -74,8 +75,8 @@
                         if (seconds <= 0) {
                             app.sendButtonText = app.initSendButtonText;
                         } else {
-                            const minutes = Math.floor(seconds / 180) + '';
-                            const seconds_ = seconds % 180 + '';
+                            const minutes = Math.floor(seconds / 60) + '';
+                            const seconds_ = seconds % 60 + '';
                             app.sendButtonText = String(minutes.padStart(2, '0') + ":" + seconds_.padStart(2, '0'));
                             setTimeout(function () {
                                 app.disableSend(seconds - 1);

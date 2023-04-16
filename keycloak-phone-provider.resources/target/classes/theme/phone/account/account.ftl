@@ -178,7 +178,7 @@
                     }
 
                     axios
-                        .post(window.location.origin + '/auth/realms/${realm.name}/verification_codes', params)
+                        .post(window.location.origin + '/realms/${realm.name}/verification_codes', params)
                         .then(res => (console.log(res.status)));
                 }
             }
@@ -186,7 +186,7 @@
 
         var onloadCallback = function() {
             axios
-                .get(window.location.origin + '/auth/realms/${realm.name}/recaptcha/key')
+                .get(window.location.origin + '/realms/${realm.name}/recaptcha/key')
                 .then(res => {
                     console.log(res.data);
                     app.setrecaptcha(res.data.capacha_key);

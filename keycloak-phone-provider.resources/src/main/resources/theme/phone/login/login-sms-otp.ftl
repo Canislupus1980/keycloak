@@ -8,6 +8,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <div id="vue-app">
+	<div class="logo"></div>
             <div class="alert-error ${properties.kcAlertClass!} pf-m-danger" v-show="errorMessage">
                 <div class="pf-c-alert__icon">
                     <span class="${properties.kcFeedbackErrorIcon!}"></span>

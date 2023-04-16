@@ -17,6 +17,10 @@
           </div>
 
         <div id="kc-form">
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
           <div id="kc-form-wrapper">
             <form id="kc-form-login" action="${url.loginAction}" method="post">
               <div class="${properties.kcFormGroupClass!} row">
@@ -30,6 +34,13 @@
                          value="${phoneNumber!''}"
                          autocomplete="mobile tel"/>
                 </div>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#phoneNumber').inputmask('+375 (99) 999-99-99');
+                    });
+                </script>
+
                 <div class="col-xs-4" style="padding: 0 0 0 5px">
                   <input tabindex="0" style="height: 36px"
                          class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"

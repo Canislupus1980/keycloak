@@ -139,8 +139,12 @@
             </#if>
 
             <#if phoneNumberRequired??>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
                 <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('phoneNumber',properties.kcFormGroupErrorClass!)}">
-                    <div class="${properties.kcLabelWrapperClass!}">
+                    <div class="${properties.kcLabelWrapperClass!}">                    
                         <label for="phoneNumber" class="${properties.kcLabelClass!}">${msg("phoneNumber")}</label>
                     </div>
                     <div class="${properties.kcInputWrapperClass!}">
@@ -157,6 +161,11 @@
                         </#if>
                     </div>
                 </div>
+                <script>
+                    $(document).ready(function() {
+                        $('#phoneNumber').inputmask('+375 (99) 999-99-99');
+                    });
+                </script>
 
                 <#if verifyPhone??>
 

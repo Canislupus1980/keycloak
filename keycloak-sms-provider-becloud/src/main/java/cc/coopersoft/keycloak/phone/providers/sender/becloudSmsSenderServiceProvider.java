@@ -29,7 +29,7 @@ public class becloudSmsSenderServiceProvider implements MessageSenderService {
 
   
   private static final String
-          SERVER_URL="https://smsgate.becloud.by/send_sms_message_with_token/";
+          SERVER_URL="https://smsgate.domen/send_sms_message_with_token/";
 
 
   public becloudSmsSenderServiceProvider(Config.Scope config, RealmModel realm) {
@@ -51,9 +51,10 @@ public class becloudSmsSenderServiceProvider implements MessageSenderService {
     String kindName = OptionalUtils.ofBlank(kind).orElse(type.name().toLowerCase());
     String templateId = Optional.ofNullable(config.get(realm.getName().toLowerCase() + "-" + kindName + "-template"))
         .orElse(config.get(kindName + "-template"));
-    nvps.add(new BasicNameValuePair(" *** ");
-    nvps.add(new BasicNameValuePair(" *** ", phoneNumber));
-    nvps.add(new BasicNameValuePair(" *** ", phoneNumber));
+    nvps.add(new BasicNameValuePair("phone_numbers", phoneNumber));
+    nvps.add(new BasicNameValuePair("content", code));
+    nvps.add(new BasicNameValuePair("client_name", phoneNumber));
+    nvps.add(new BasicNameValuePair("contact_person", phoneNumber));
 
 
     // execute request
@@ -62,11 +63,11 @@ public class becloudSmsSenderServiceProvider implements MessageSenderService {
        * 1. Print the execution result, the print result will generally be 200, 315, 403, 404, 413, 414, 500
        * 2. If there is a problem with the specific code, please refer to the Code status table on the official website
        */
-      httpPost.setEntity(new UrlEncodedFormEntity(nvps, "utf-8"));      
+      httpPost.setEntity(new UrlEncodedFormEntity(nvps, "utf-8"));
       HttpResponse response = HttpClientBuilder.create().setDefaultHeaders(List.of(
               new BasicHeader(HttpHeaders.CONTENT_TYPE, "application/json"),
-              new BasicHeader(HttpHeaders.CONTENT_TYPE, " *** "),
-              new BasicHeader(HttpHeaders.AUTHORIZATION, " *** ")))
+              new BasicHeader(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded"),
+              new BasicHeader(HttpHeaders.AUTHORIZATION, "key")))
               .build().execute(httpPost);
       System.out.println(EntityUtils.toString(response.getEntity(), "utf-8"));
     } catch (IOException e) {

@@ -14,6 +14,7 @@ cc/coopersoft/keycloak/phone/providers/jpa/TokenCodeJpaEntityProvider.class
 cc/coopersoft/keycloak/phone/providers/spi/MessageSenderServiceProviderFactory.class
 cc/coopersoft/keycloak/phone/authentication/authenticators/directgrant/BaseDirectGrantAuthenticator.class
 cc/coopersoft/keycloak/phone/providers/spi/impl/DefaultPhoneVerificationCodeProvider.class
+cc/coopersoft/keycloak/phone/providers/exception/PhoneNumberInvalidException$ErrorType.class
 cc/coopersoft/keycloak/phone/authentication/authenticators/directgrant/PhoneNumberAuthenticatorFactory.class
 cc/coopersoft/keycloak/phone/providers/exception/MessageSendException.class
 cc/coopersoft/keycloak/phone/providers/spi/PhoneVerificationCodeSpi.class
@@ -24,7 +25,6 @@ cc/coopersoft/keycloak/phone/providers/rest/VerificationCodeResource.class
 cc/coopersoft/keycloak/phone/authentication/forms/RegistrationPhoneVerificationCode.class
 cc/coopersoft/keycloak/phone/providers/representations/TokenCodeRepresentation.class
 cc/coopersoft/keycloak/phone/credential/PhoneOtpCredentialProviderFactory.class
-cc/coopersoft/common/OptionalStringUtils.class
 cc/coopersoft/keycloak/phone/providers/spi/PhoneSpi.class
 cc/coopersoft/keycloak/phone/providers/spi/PhoneProviderFactory.class
 cc/coopersoft/keycloak/phone/providers/constants/TokenCodeType.class
@@ -38,6 +38,7 @@ cc/coopersoft/keycloak/phone/providers/spi/impl/DefaultPhoneProvider.class
 cc/coopersoft/keycloak/phone/providers/jpa/TokenCodeJpaEntityProviderFactory.class
 cc/coopersoft/keycloak/phone/providers/rest/SmsResource.class
 cc/coopersoft/keycloak/phone/providers/jpa/TokenCode.class
+cc/coopersoft/common/OptionalUtils.class
 cc/coopersoft/keycloak/phone/authentication/requiredactions/ConfigSmsOtpRequiredActionFactory.class
 cc/coopersoft/keycloak/phone/credential/PhoneOtpCredentialProvider.class
 cc/coopersoft/keycloak/phone/credential/PhoneOtpCredentialModel$EmptySecretData.class
@@ -51,3 +52,4 @@ cc/coopersoft/keycloak/phone/providers/spi/PhoneProvider.class
 cc/coopersoft/keycloak/phone/providers/rest/TokenCodeResource.class
 cc/coopersoft/keycloak/phone/authentication/authenticators/directgrant/AuthenticationCodeAuthenticatorFactory.class
 cc/coopersoft/keycloak/phone/authentication/authenticators/directgrant/EverybodyPhoneAuthenticator.class
+cc/coopersoft/keycloak/phone/providers/exception/PhoneNumberInvalidException.class
