@@ -20,6 +20,33 @@ docker network create --driver bridge --subnet=172.16.50.0/24 sso-network
     -p admin \
     && docker restart local_keycloak
 ```
+## To install the SMS Authenticator one has to:
+
+Build and package the project:
+
+```bash
+mvn -e clean install
+```
+## Add the jar to the Keycloak server:
+
+```bash
+docker cp target/providers/keycloak-phone-provider.jar keycloak:/opt/bitnami/keycloak/providers/
+docker cp target/providers/keycloak-phone-provider.resources.jar keycloak:/opt/bitnami/keycloak/providers/
+docker cp target/providers/keycloak-sms-provider-becloud.jar keycloak:/opt/bitnami/keycloak/providers/
+docker-compose -f ./docker-compose.yml restart
+```
+
+### Log in via SMS
+
+![image](https://user-images.githubusercontent.com/86954730/232290670-5d9e47f6-f272-4bae-8432-b9c40e108218.png)
+
+![image](https://user-images.githubusercontent.com/86954730/232290780-c92106ab-25fc-4531-9d41-6cf0457ce853.png)
+
+![image](https://user-images.githubusercontent.com/86954730/232290877-13880487-c955-4b5c-bc60-f3e2ba7a394f.png)
+
+![image](https://user-images.githubusercontent.com/86954730/232290972-ed5450a9-7591-44f7-893b-826f5a68c47d.png)
+
+![image](https://user-images.githubusercontent.com/86954730/232291005-36f88479-c946-4e38-a5d4-43f2198c4882.png)
 
 ### Running the sms-gate script
 ```sh
