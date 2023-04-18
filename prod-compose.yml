@@ -22,7 +22,7 @@ services:
       - postgres
     container_name: keycloak
     environment:
-      KEYCLOAK_HOSTNAME: sso.becloudby.com
+      KEYCLOAK_HOSTNAME: sso.domen.com
       KEYCLOAK_HTTP_PORT: 8080
       HOSTNAME_STRICT_BACKCHANNEL: true
       KEYCLOAK_EXTRA_ARGS: "-Dkeycloak.profile.feature.scripts=enabled"
@@ -37,7 +37,7 @@ services:
       KEYCLOAK_DATABASE_PASSWORD: ${POSTGRES_PASS}
       KEYCLOAK_CREATE_ADMIN_USER: true
       KEYCLOAK_ADMIN_USER: admin
-      KEYCLOAK_ADMIN_PASSWORD: ueeHWugC!@80
+      KEYCLOAK_ADMIN_PASSWORD: admin
       KEYCLOAK_PRODUCTION: true
       PROXY_ADDRESS_FORWARDING: true
       KEYCLOAK_ENABLE_HTTPS: true
@@ -48,8 +48,8 @@ services:
       TZ: ${TIME_ZONE}
     image: bitnami/keycloak:${KEYCLOAK_VERSION}
     volumes:
-      - ./certs/becloudby.crt:/opt/bitnami/keycloak/certs/tls.crt:ro
-      - ./certs/becloudby.key:/opt/bitnami/keycloak/certs/tls.key:ro
+      - ./certs/domen.crt:/opt/bitnami/keycloak/certs/tls.crt:ro
+      - ./certs/domen.key:/opt/bitnami/keycloak/certs/tls.key:ro
       - ./mynewtheme:/opt/bitnami/keycloak/themes/mynewtheme
     ports:
       - 8080:8080
