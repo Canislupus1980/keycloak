@@ -71,7 +71,9 @@ h1#kc-page-title {
 
 #kc-locale-dropdown {
     display: inline-block;
-    position: relative;
+    position: static;
+    top: 0;
+    right: 0;
 }
 
 #kc-locale-dropdown:hover ul {
@@ -96,7 +98,7 @@ h1#kc-page-title {
     top: 100%;
     right: 0;
     z-index: 10;
-    min-width: 100%;
+    min-width: auto;
     background-color: #545050;
     border: 1px solid #ccc;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -217,10 +219,6 @@ a {
 
 #kc-form-wrapper {
     margin-top: 10px;
-}
-
-#kc-info {
-    margin: 20px -40px -30px;
 }
 
 #kc-info-wrapper {
@@ -424,10 +422,20 @@ ul#kc-totp-supported-apps {
     border-color: transparent black transparent transparent;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
+
+    #kc-content-wrapper {
+        margin-top: 0;
+    }
+
+    .login-pf-header{
+        margin-bottom: 0;
+    }
+
     #kc-container-wrapper {
         position: absolute;
         width: 100%;
+	max-width: none;
     }
 
     .login-pf .container {
@@ -460,15 +468,21 @@ ul#kc-totp-supported-apps {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
+
+    .login-pf-page{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     .login-pf body {
         background: #008292;
     }
 
     #kc-header {
-        padding-left: 15px;
-        padding-right: 15px;
+        
         float: none;
         text-align: left;
     }
@@ -503,12 +517,13 @@ ul#kc-totp-supported-apps {
     }
 
     #kc-locale {
-        position: absolute;
-        width: 200px;
-        top: 20px;
-        right: 20px;
+        position: static;
         text-align: right;
         z-index: 9999;
+    }
+
+    #kc-locale-dropdown{
+        position: relative;
     }
 }
 
@@ -640,14 +655,21 @@ ul#kc-totp-supported-apps {
 }
 
 /*phone*/
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
     .login-pf-page .card-pf {
+        padding: 0 20px;
         max-width: none;
         margin-left: 0;
         margin-right: 0;
         padding-top: 0;
         border-top: 0;
         box-shadow: 0 0;
+    }
+
+    .card-pf {
+        position: static;
+        width: auto;
+        transform: none;
     }
 
     .kc-social-grid {
