@@ -33,7 +33,7 @@ mvn -e clean install
 docker cp target/providers/keycloak-phone-provider.jar keycloak:/opt/bitnami/keycloak/providers/
 docker cp target/providers/keycloak-phone-provider.resources.jar keycloak:/opt/bitnami/keycloak/providers/
 docker cp target/providers/keycloak-sms-provider-becloud.jar keycloak:/opt/bitnami/keycloak/providers/
-docker-compose -f ./docker-compose.yml restart
+docker-compose -f ./prod-compose.yml restart
 ```
 
 ### Log in via SMS
