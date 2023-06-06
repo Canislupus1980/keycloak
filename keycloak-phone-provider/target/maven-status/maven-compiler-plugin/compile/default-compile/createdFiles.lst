@@ -25,6 +25,7 @@ cc/coopersoft/keycloak/phone/providers/rest/VerificationCodeResource.class
 cc/coopersoft/keycloak/phone/authentication/forms/RegistrationPhoneVerificationCode.class
 cc/coopersoft/keycloak/phone/providers/representations/TokenCodeRepresentation.class
 cc/coopersoft/keycloak/phone/credential/PhoneOtpCredentialProviderFactory.class
+cc/coopersoft/common/OptionalStringUtils.class
 cc/coopersoft/keycloak/phone/providers/spi/PhoneSpi.class
 cc/coopersoft/keycloak/phone/providers/spi/PhoneProviderFactory.class
 cc/coopersoft/keycloak/phone/providers/constants/TokenCodeType.class

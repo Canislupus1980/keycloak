@@ -28,6 +28,12 @@
                                        value="${(login.username!'')}"
                                        type="tel" autofocus autocomplete="mobile tel"/>
 
+                                <select id="phoneMask">
+                                    <option value="+375 (99) 999-99-99">BY</option>
+                                    <option value="+7 (999) 999-99-99">RU</option>
+                                      <!-- Добавьте здесь другие варианты масок, если это необходимо -->
+                                </select>
+
                                 <#if messagesPerField.existsError('username')>
                                     <span id="input-error-username" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
                                         ${kcSanitize(messagesPerField.get('username'))?no_esc}
@@ -35,10 +41,14 @@
                                 </#if>
                             </div>
                             <script>
-                                    $(document).ready(function() {
-                                        $('#username').inputmask('+375 (99) 999-99-99');
-                                    });
-                            </script>
+                               $(document).ready(function() {
+                                 $('#username').inputmask('+375 (99) 999-99-99');
+                                 $('#phoneMask').change(function() {
+                                 var mask = $(this).val();
+                                 $('#username').inputmask(mask);
+                             });
+                           });
+                        </script>
 
 
 

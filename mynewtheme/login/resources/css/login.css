@@ -6,21 +6,33 @@
     background: url("../img/becloud.png") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
-    
+
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
 
-    text-transform: uppercase;  
+    text-transform: uppercase;
     color: #000000;
     font-family: sans-serif;
-    
-    margin: 0px;   
-    
+
+    margin: 0px;
+
 }
 
 textarea.pf-c-form-control {
-	height: auto;
+    height: auto;
+}
+
+
+.login-page-phone-input{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-bottom: 20px;
+}
+
+select#phoneMask {
+    background-color: #549ba9;
+    padding-left: 0px;
 }
 
 .pf-c-alert__title {
@@ -42,7 +54,7 @@ h1#kc-page-title {
 
 #kc-locale ul {
     background-color: #fff;
-    border: 1px solid #ccc;    
+    border: 1px solid #ccc;
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -77,7 +89,7 @@ h1#kc-page-title {
 }
 
 #kc-locale-dropdown:hover ul {
-    display:block;
+    display: block;
 }
 
 #kc-locale-dropdown a {
@@ -119,8 +131,13 @@ a#kc-current-locale-link::after {
 }
 
 .login-pf a:hover {
-    color: #000507;  
+    color: #000507;
 
+}
+
+.button, select {
+    background-color: #1b8491;
+    padding-left: 20px;
 }
 
 #kc-logo {
@@ -146,7 +163,7 @@ div.kc-logo-text span {
 }
 
 #kc-header-wrapper {
-    display: none;    
+    display: none;
 }
 
 a {
@@ -158,8 +175,10 @@ a {
     background-image: url("../img/beCloud_logo.png");
     background-repeat: no-repeat;
     background-size: contain;
-    width: 200px; /* set the desired width of your logo */
-    height: 100px; /* set the desired height of your logo */
+    width: 200px;
+    /* set the desired width of your logo */
+    height: 100px;
+    /* set the desired height of your logo */
     display: block;
     margin: 0 auto;
 }
@@ -177,7 +196,7 @@ a {
 
 #kc-username {
     text-align: center;
-    margin-bottom:-10px;
+    margin-bottom: -10px;
 }
 
 #kc-webauthn-settings-form {
@@ -223,9 +242,9 @@ a {
 
 #kc-info-wrapper {
     font-size: 13px;
-  padding: 15px 35px;
-  
-  background-color: none;
+    padding: 15px 35px;
+
+    background-color: none;
 }
 
 #kc-form-options span {
@@ -240,11 +259,12 @@ a {
 
 #kc-terms-text {
     margin-bottom: 20px;
-    max-height: 200px; /* Установить максимальную высоту текста */
+    max-height: 200px;
+    /* Установить максимальную высоту текста */
     overflow-y: auto;
     text-transform: none;
     text-align: justify;
-    color: #fff;   
+    color: #fff;
 }
 
 #kc-registration {
@@ -268,7 +288,7 @@ a {
     background-color: #ffffff;
     scrollbar-shadow-color: #000000;
     border-radius: 6px;
-        
+
     padding: 5px;
     border-color: #000000;
 
@@ -286,8 +306,8 @@ ul#kc-totp-supported-apps {
 }
 
 #kc-totp-secret-qr-code {
-    max-width:150px;
-    max-height:150px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 #kc-totp-secret-key {
@@ -362,7 +382,7 @@ ul#kc-totp-supported-apps {
 }
 
 .kc-social-grid {
-    display:grid;
+    display: grid;
     grid-column-gap: 10px;
     grid-row-gap: 5px;
     grid-column-end: span 6;
@@ -382,32 +402,32 @@ ul#kc-totp-supported-apps {
     text-align: center;
 }
 
-.kc-social-section hr{
+.kc-social-section hr {
     margin-bottom: 10px
 }
 
-.kc-login-tooltip .kc-tooltip-text{
-    top:-3px;
-    left:160%;
+.kc-login-tooltip .kc-tooltip-text {
+    top: -3px;
+    left: 160%;
     background-color: black;
     visibility: hidden;
     color: #fff;
 
-    min-width:130px;
+    min-width: 130px;
     text-align: center;
     border-radius: 2px;
-    box-shadow:0 1px 8px rgba(0,0,0,0.6);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
     padding: 5px;
 
     position: absolute;
-    opacity:0;
-    transition:opacity 0.5s;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 /* Show tooltip */
 .kc-login-tooltip:hover .kc-tooltip-text {
     visibility: visible;
-    opacity:0.7;
+    opacity: 0.7;
 }
 
 /* Arrow for tooltip */
@@ -428,14 +448,14 @@ ul#kc-totp-supported-apps {
         margin-top: 0;
     }
 
-    .login-pf-header{
+    .login-pf-header {
         margin-bottom: 0;
     }
 
     #kc-container-wrapper {
         position: absolute;
         width: 100%;
-	max-width: none;
+        max-width: none;
     }
 
     .login-pf .container {
@@ -446,19 +466,21 @@ ul#kc-totp-supported-apps {
         position: absolute;
         top: 50%;
         left: 60%;
-        
+
         transform: translateY(-50%);
         max-width: 50%;
         color: #ffffff;
-    
-        background-color: rgb(0, 130, 146, 0.8); /* установка цвета фона с прозрачностью */
-        border-radius: 25px; /* установка радиуса скругления углов */
+
+        background-color: rgb(0, 130, 146, 0.8);
+        /* установка цвета фона с прозрачностью */
+        border-radius: 25px;
+        /* установка радиуса скругления углов */
         box-shadow: 0 0 1px #333333;
         border-radius: 20px;
         padding: 40px;
-        
+
         width: 410px;
-        
+
     }
 
     #kc-locale {
@@ -470,7 +492,7 @@ ul#kc-totp-supported-apps {
 
 @media (max-width: 1024px) {
 
-    .login-pf-page{
+    .login-pf-page {
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -482,7 +504,7 @@ ul#kc-totp-supported-apps {
     }
 
     #kc-header {
-        
+
         float: none;
         text-align: left;
     }
@@ -522,7 +544,7 @@ ul#kc-totp-supported-apps {
         z-index: 9999;
     }
 
-    #kc-locale-dropdown{
+    #kc-locale-dropdown {
         position: relative;
     }
 }
@@ -555,13 +577,13 @@ ul#kc-totp-supported-apps {
     width: 40%;
 }
 
-.select-auth-box-arrow{
+.select-auth-box-arrow {
     display: flex;
     align-items: center;
     margin-right: 2rem;
 }
 
-.select-auth-box-icon{
+.select-auth-box-icon {
     display: flex;
     flex: 0 0 2em;
     justify-content: center;
@@ -569,14 +591,14 @@ ul#kc-totp-supported-apps {
     margin-left: 3rem;
 }
 
-.select-auth-box-parent{
+.select-auth-box-parent {
     border-top: 1px solid var(--pf-global--palette--black-200);
     padding-top: 1rem;
     padding-bottom: 1rem;
     cursor: pointer;
 }
 
-.select-auth-box-parent:hover{
+.select-auth-box-parent:hover {
     background-color: #f7f8f8;
 }
 
@@ -608,12 +630,14 @@ ul#kc-totp-supported-apps {
     max-width: 50%;
     color: #ffffff;
 
-    background-color: rgb(0, 130, 146, 0.8); /* установка цвета фона с прозрачностью */
-    border-radius: 25px; /* установка радиуса скругления углов */
+    background-color: rgb(0, 130, 146, 0.8);
+    /* установка цвета фона с прозрачностью */
+    border-radius: 25px;
+    /* установка радиуса скругления углов */
     box-shadow: 0 0 1px #333333;
     border-radius: 20px;
-    padding: 30px;    
-    
+    padding: 30px;
+
 }
 
 /* .card-pf:hover {
@@ -631,27 +655,28 @@ ul#kc-totp-supported-apps {
     background-color: #ffffff;
     scrollbar-shadow-color: #000000;
     border-radius: 6px;
-     
+
     padding: 5px;
     border-color: #000000;
 
-    text-transform: uppercase;   
+    text-transform: uppercase;
 }
 
 .login-pf-page .login-pf-signup a {
     margin-left: 10px;
-    color: #000000;    
+    color: #000000;
 }
 
 .login-pf-page .card-pf p {
     margin-bottom: 20px;
-    max-height: 300px; /* Установить максимальную высоту текста */
+    max-height: 300px;
+    /* Установить максимальную высоту текста */
     overflow-y: auto;
     max-width: 500px;
     padding-right: 10px;
     text-transform: none;
     text-align: justify;
-    color: #fff;  
+    color: #fff;
 }
 
 /*phone*/
@@ -686,6 +711,7 @@ ul#kc-totp-supported-apps {
     font-size: 15px;
     color: #ffffff;
 }
+
 #kc-content-wrapper .row {
     margin-left: 0;
     margin-right: 0;
@@ -711,7 +737,7 @@ ul#kc-totp-supported-apps {
 #kc-form-login div.form-group:last-of-type,
 #kc-register-form div.form-group:last-of-type,
 #kc-update-profile-form div.form-group:last-of-type,
-#kc-update-email-form div.form-group:last-of-type{
+#kc-update-email-form div.form-group:last-of-type {
     margin-bottom: 0px;
 }
 
@@ -727,9 +753,11 @@ ul#kc-totp-supported-apps {
 .kc-recovery-codes-warning {
     margin-bottom: 32px;
 }
+
 .kc-recovery-codes-warning .pf-c-alert__description p {
     font-size: 0.875rem;
 }
+
 .kc-recovery-codes-list {
     list-style: none;
     columns: 2;
@@ -737,10 +765,12 @@ ul#kc-totp-supported-apps {
     padding: 16px 16px 8px 16px;
     border: 1px solid #D2D2D2;
 }
+
 .kc-recovery-codes-list li {
     margin-bottom: 8px;
     font-size: 11px;
 }
+
 .kc-recovery-codes-list li span {
     color: #6A6E73;
     width: 16px;
@@ -752,9 +782,11 @@ ul#kc-totp-supported-apps {
 .kc-recovery-codes-actions {
     margin-bottom: 24px;
 }
+
 .kc-recovery-codes-actions button {
     padding-left: 0;
 }
+
 .kc-recovery-codes-actions button i {
     margin-right: 8px;
 }
@@ -763,4 +795,5 @@ ul#kc-totp-supported-apps {
     align-items: baseline;
     margin-bottom: 16px;
 }
+
 /* End Recovery codes */

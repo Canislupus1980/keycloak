@@ -33,6 +33,26 @@ By clicking the ACCEPT button at the bottom of this page, you acknowledge that y
             <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="accept" id="kc-accept" type="submit" value="${msg("doAccept")}">
             <input class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" name="cancel" id="kc-decline" type="submit" value="${msg("doNotAccept")}">
         </form>
+	<script>
+           // получаем форму и кнопку "Отмена"
+           const form = document.getElementById("my-form");
+           const cancelButton = document.getElementById("kc-decline");
+
+          // добавляем обработчик события "submit" на форму
+          form.addEventListener("submit", (event) => {
+            // отменяем стандартное поведение формы (отправку на сервер)
+            event.preventDefault();
+
+            // перенаправляем на другой URL
+            window.location.href = "${url.loginAction}";
+          });
+
+          // добавляем обработчик события "click" на кнопку "Отмена"
+          cancelButton.addEventListener("click", () => {
+            // отправляем форму (это вызовет обработчик события "submit" на форме)
+            form.submit();
+          });
+        </script>
         </div>
         <div class="clearfix"></div>
     </#if>
