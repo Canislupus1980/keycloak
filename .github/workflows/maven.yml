@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-
+  
     runs-on: ubuntu-latest
 
     steps:
@@ -41,4 +41,4 @@ jobs:
       - name: Install deps
         run: mvn ci
       - name: Test
-        run: mvn run test
+        run: mvn -e clean install
