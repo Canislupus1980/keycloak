@@ -57,4 +57,4 @@ docker-compose -f ./prod-compose.yml restart
 sudo watch --interval=1 /home/cloud-user/.git/keycloak-auth-otp-sms/sms.sh
 ```
 Refrence & Links
-https://github.com/cooperlyt/keycloak-phone-provider
+Some code written is based on existing ones in these one project: https://github.com/cooperlyt/keycloak-phone-provider. Certainly I would have many problems coding all those providers blindly. Thank you!
