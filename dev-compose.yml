@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   postgres:
     image: postgres
@@ -43,8 +41,8 @@ services:
       KEYCLOAK_ENABLE_HTTPS: true
       KEYCLOAK_HTTPS_TRUST_STORE_FILE: /opt/bitnami/keycloak/certs/truststore.jks
       KEYCLOAK_HTTPS_KEY_STORE_FILE: /opt/bitnami/keycloak/certs/keystore.jks
-      KEYCLOAK_HTTPS_TRUST_STORE_PASSWORD: 'pass'
-      KEYCLOAK_HTTPS_KEY_STORE_PASSWORD: 'pass'
+      KEYCLOAK_HTTPS_TRUST_STORE_PASSWORD: "pass"
+      KEYCLOAK_HTTPS_KEY_STORE_PASSWORD: "pass"
       KEYCLOAK_HTTPS_USE_PEM: true
       KEYCLOAK_HTTPS_CERTIFICATE_FILE: /opt/bitnami/keycloak/certs/tls.crt
       KEYCLOAK_HTTPS_CERTIFICATE_KEY_FILE: /opt/bitnami/keycloak/certs/tls.key
@@ -60,7 +58,6 @@ services:
       - "443:8443"
     networks:
       - sso-network
-
 
 # Networks to be created to facilitate communication between containers
 networks:

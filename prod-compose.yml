@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   postgres:
     image: postgres
@@ -56,9 +54,8 @@ services:
       - 443:8443
     networks:
       - sso-network
-          
 
 # Networks to be created to facilitate communication between containers
 networks:
   sso-network:
-    external: true	
+    external: true

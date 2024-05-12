@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   nginx:
     image: nginx
@@ -36,7 +34,7 @@ services:
     container_name: keycloak
     entrypoint: /opt/keycloak/bin/kc.sh start --proxy edge --hostname-strict=false
     environment:
-      HOSTNAME_STRICT_BACKCHANNEL: 'true'
+      HOSTNAME_STRICT_BACKCHANNEL: "true"
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres
       DB_SCHEMA: public
@@ -45,14 +43,13 @@ services:
       DB_PASSWORD: ${POSTGRES_PASS}
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-      PROXY_ADDRESS_FORWARDING: 'true'
+      PROXY_ADDRESS_FORWARDING: "true"
       TZ: ${TIME_ZONE}
     image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
     ports:
       - 8080:8080
     networks:
       - sso-network
-
 
 # Networks to be created to facilitate communication between containers
 networks:
