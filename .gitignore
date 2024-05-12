@@ -2,3 +2,4 @@
 .vscode
 .terraform*
 .github
+target/*
